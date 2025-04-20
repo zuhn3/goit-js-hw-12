@@ -16,3 +16,168 @@
 @import url('./badges.css');
 @import url('./back-link.css');
 @import url('./footer.css');
+
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body::before {
+  content: '';
+    position: fixed;
+    inset: 0;
+  background: url(../img/background-image.jpg);
+    background-size: cover;
+      background-position: center;
+    filter: blur(3px);
+    z-index: -1;
+}
+
+.container {
+  max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.form {
+  display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 35px;
+    gap: 8px;
+}
+
+.input {
+  height: 35px;
+  width: 272px;
+    padding-left: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.04em;
+    border-radius: 4px;
+    border: 1px solid #808080;
+    outline: none;
+}
+
+.input:hover {
+border: 1px solid #000000;
+}
+
+.input:focus {
+border: 1px solid #4e75ff;
+}
+
+.btn-search {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 95px;
+  height: 40px;
+  background-color: #4e75ff;
+  color: #fff;
+  margin-bottom: 25px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  border: none;
+}
+
+.btn-search:hover {
+background-color: #6C8CFF;
+}
+
+.btn-more {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 125px;
+  height: 40px;
+  background-color: #4e75ff;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  border: none;
+  margin: 0 auto;
+  margin-top: 25px;
+  display: block;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.gallery-img {
+  width: 360px;
+  height: 200px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  object-fit: cover;
+}
+
+.gallery-item {
+border: 2px solid #808080;
+transition: transform 0.5s ease;
+border-radius: 6px;
+}
+
+.gallery-item:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.info-list {
+display: flex;
+max-width: 360px;
+gap: auto;
+justify-content: space-around;
+background-color: rgb(192, 197, 199);
+}
+
+.info-item {
+display: flex;
+flex-direction: column;
+font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 4px;
+}
+
+.info-list > li > span {
+  text-align: center;
+    display: block;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+}
+
+.loader {
+  display: none;
+  margin: 20px auto;
+  width: 50px;
+  height: 50px;
+  border: 6px solid #ccc;
+  border-top: 6px solid #333;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loader.visible {
+  display: block;
+}
+
+.loader.hidden {
+  display: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
