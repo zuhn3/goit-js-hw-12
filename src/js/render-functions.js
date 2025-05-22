@@ -1,17 +1,8 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-
 const galleryContainer = document.querySelector('.gallery');
-
 const loader = document.querySelector('.loader');
-
-
-export function createLoader() {
-  const span = document.createElement('span');
-  span.classList.add('loader');
-  galleryContainer.append(span); 
-}
 
 let lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
@@ -55,4 +46,10 @@ export function showLoader() {
 
 export function hideLoader() {
   loader.classList.remove('visible');
+}
+
+export function createLoader() {
+  const span = document.createElement('span');
+  span.classList.add('loader');
+  galleryContainer.append(span);
 }
