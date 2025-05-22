@@ -1,15 +1,17 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
 
-export function createLoader() {
-    document.createElement(span);
-    span.classList.add('loader');
-    gallery.append(span);
-}
 
 const galleryContainer = document.querySelector('.gallery');
+
 const loader = document.querySelector('.loader');
 
+
+export function createLoader() {
+  const span = document.createElement('span');
+  span.classList.add('loader');
+  galleryContainer.append(span); 
+}
 
 let lightbox = new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
