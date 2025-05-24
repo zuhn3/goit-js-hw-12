@@ -48,8 +48,12 @@ export function hideLoader() {
   loader.classList.remove('visible');
 }
 
-export function createLoader() {
-  const span = document.createElement('span');
-  span.classList.add('loader');
-  galleryContainer.append(span);
+export function showLoadMoreBtn() {
+  const buttonMore = document.querySelector('.btn-more');
+  if (buttonMore) buttonMore.style.display = 'block';
+}
+
+export function hideLoadMoreBtn() {
+  const buttonMore = document.querySelector('.btn-more');
+  if (buttonMore) buttonMore.style.display = 'none';
 }

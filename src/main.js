@@ -3,7 +3,9 @@ import {
   createGallery,
   clearGallery,
   showLoader,
-  hideLoader
+  hideLoader,
+  showLoadMoreBtn,
+  hideLoadMoreBtn,
 } from './js/render-functions.js';
 
 import iziToast from 'izitoast';
@@ -17,7 +19,7 @@ let currentPage = 1;
 let currentQuery = '';
 let totalHits = 0;
 
-buttonMore.style.display = 'none';
+hideLoadMoreBtn();
 
 form.addEventListener('submit', async (e) => {
   e.preventDefault();
@@ -26,8 +28,8 @@ form.addEventListener('submit', async (e) => {
   currentQuery = query;
   currentPage = 1;
   totalHits = 0;
-  buttonMore.style.display = 'none';
 
+  hideLoadMoreBtn();
   clearGallery();
   showLoader();
 
@@ -58,7 +60,7 @@ form.addEventListener('submit', async (e) => {
     createGallery(data.hits);
 
     if (data.hits.length === 15 && data.totalHits > 15) {
-      buttonMore.style.display = 'block';
+      showLoadMoreBtn();
     }
 
   } catch (error) {
@@ -83,7 +85,7 @@ buttonMore.addEventListener('click', async () => {
 
     const totalLoaded = document.querySelectorAll('.gallery-item').length;
     if (totalLoaded >= totalHits) {
-      buttonMore.style.display = 'none';
+      hideLoadMoreBtn();
       iziToast.info({
         title: 'Info',
         message: `We're sorry, but you've reached the end of search results.`,
